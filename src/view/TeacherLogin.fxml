@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.menuLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.allUsersLoginController">
     <children>
         <GridPane layoutX="42.0" layoutY="88.0" prefHeight="148.0" prefWidth="316.0">
             <columnConstraints>
@@ -53,7 +53,7 @@
                         <Insets left="50.0" />
                     </GridPane.margin>
                 </Button>
-                <Button fx:id="_teacherLoginBtnCancell" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Cancel" GridPane.rowIndex="3" />
+                <Button fx:id="_teacherLoginBtnCancel" mnemonicParsing="false" onAction="#_teacherLoginBtnCancelClick" prefHeight="25.0" prefWidth="82.0" text="Cancel" GridPane.rowIndex="3" />
             </children>
         </GridPane>
         <Label layoutX="70.0" layoutY="7.0" text="Teacher Login">

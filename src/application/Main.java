@@ -61,8 +61,12 @@ public void start(Stage primaryStage) throws Exception {
 	public static void menuSwitch(String request)
 	{
 		switch (request) {
-		
-		case "Admin":
+
+			case "Menu":
+				stage.setScene(menuLogin);
+				break;
+
+			case "Admin":
 			stage.setScene(adminLogin);
 			break;
 
