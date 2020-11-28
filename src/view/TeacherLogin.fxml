@@ -38,25 +38,25 @@
                         <Insets left="10.0" />
                     </padding>
                 </Label>
-                <TextField fx:id="_adminLoginUserName" prefHeight="30.0" prefWidth="205.0" GridPane.columnIndex="1">
+                <TextField fx:id="_teacherLoginUserName" prefHeight="30.0" prefWidth="205.0" GridPane.columnIndex="1">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </TextField>
-                <PasswordField fx:id="_adminLoginPassword" prefHeight="30.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <PasswordField fx:id="_teacherLoginPassword" prefHeight="30.0" prefWidth="205.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets top="2.0" />
                     </GridPane.margin>
                 </PasswordField>
-                <Button fx:id="_adminLoginBtnEnter" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Enter" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Button fx:id="_teacherLoginBtnEnter" mnemonicParsing="false" prefHeight="25.0" prefWidth="100.0" text="Enter" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <GridPane.margin>
                         <Insets left="50.0" />
                     </GridPane.margin>
                 </Button>
-                <Button fx:id="_adminLoginBtnCancell" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Cancel" GridPane.rowIndex="3" />
+                <Button fx:id="_teacherLoginBtnCancell" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Cancel" GridPane.rowIndex="3" />
             </children>
         </GridPane>
-        <Label layoutX="70.0" layoutY="7.0" text="Admin Login">
+        <Label layoutX="70.0" layoutY="7.0" text="Teacher Login">
             <font>
                 <Font name="Century Gothic" size="39.0" />
             </font>

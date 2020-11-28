@@ -21,4 +21,15 @@ public class menuLoginController {
     	Main.menuSwitch("Admin");
     }
 
+    @FXML
+    void goToTeacherLogin() {
+
+        Main.menuSwitch("Teacher");
+    }
+
+    @FXML
+    void goTotStudentLogin() {
+        Main.menuSwitch("Student");
+    }
+
 }

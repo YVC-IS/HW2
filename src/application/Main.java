@@ -16,6 +16,8 @@ public class Main extends Application {
 	
 	private static Scene menuLogin;
 	private static Scene adminLogin;
+	private static Scene teacherLogin;
+	private static Scene studentLogin;
 	private static Scene loginScene;
 
 
@@ -43,6 +45,12 @@ public void start(Stage primaryStage) throws Exception {
 		
 		Parent fxmlAdminLogin = FXMLLoader.load(getClass().getResource("/view/AdminLogin.fxml"));
 		adminLogin = new Scene(fxmlAdminLogin);
+
+		Parent fxmlTeacherLogin = FXMLLoader.load(getClass().getResource("/view/TeacherLogin.fxml"));
+		teacherLogin = new Scene(fxmlTeacherLogin);
+
+		Parent fxmlStudentLogin = FXMLLoader.load(getClass().getResource("/view/StudentLogin.fxml"));
+		studentLogin = new Scene(fxmlStudentLogin);
 		
 		stage.setScene(menuLogin); 
 		stage.show();
@@ -56,8 +64,17 @@ public void start(Stage primaryStage) throws Exception {
 		
 		case "Admin":
 			stage.setScene(adminLogin);
-			break;		
+			break;
+
+			case"Teacher":
+				stage.setScene(teacherLogin);
+			break;
+
+			case"Student":
+				stage.setScene(studentLogin);
+				break;
 		}
+
 	}
 	
 	public static void main(String[] args) {

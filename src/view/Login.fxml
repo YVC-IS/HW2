@@ -16,11 +16,11 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="studentBtn" layoutX="319.0" layoutY="158.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="111.0" text="Student">
+      <Button fx:id="studentBtn" layoutX="319.0" layoutY="158.0" mnemonicParsing="false" onAction="#goTotStudentLogin" prefHeight="72.0" prefWidth="111.0" text="Student">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="teacherBtn" layoutX="182.0" layoutY="158.0" mnemonicParsing="false" prefHeight="72.0" prefWidth="111.0" text="Teacher">
+      <Button fx:id="teacherBtn" layoutX="182.0" layoutY="158.0" mnemonicParsing="false" onAction="#goToTeacherLogin" prefHeight="72.0" prefWidth="111.0" text="Teacher">
          <font>
             <Font size="18.0" />
          </font></Button>
