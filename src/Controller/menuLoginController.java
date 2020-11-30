@@ -1,35 +1,32 @@
 package Controller;
 
-import application.Main;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
 
 public class menuLoginController {
 
-    @FXML
-    private Button adminBtn;
+    ObservableList list = FXCollections.observableArrayList("Admin","Teacher","Assistant","Student");
 
     @FXML
-    private Button studentBtn;
+    private TextField _userIdText;
 
     @FXML
-    private Button teacherBtn;
+    private TextField _passwordIdText;
 
     @FXML
-    void goToAdminLogin() {
-
-    	Main.menuSwitch("Admin");
-    }
+    private Button _loginBtn;
 
     @FXML
-    void goToTeacherLogin() {
+    private ChoiceBox<String> _choiseBox;
 
-        Main.menuSwitch("Teacher");
-    }
-
-    @FXML
-    void goTotStudentLogin() {
-        Main.menuSwitch("Student");
+    public void initialize ()
+    {
+        _choiseBox.setValue("Choose Option");
+        _choiseBox.setItems(list);
     }
 
 }

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +20,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+
+
 		stage = primaryStage;
 		primaryStage.setTitle("Main Login");
 		Parent fxmlLogin = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
