@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -26,11 +24,11 @@ public class Main extends Application {
 		primaryStage.setTitle("Main Login");
 		Parent fxmlLogin = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
 		menuLogin = new Scene(fxmlLogin);
-		Parent fxmlAdminLogin = FXMLLoader.load(getClass().getResource("/view/AdminLogin.fxml"));
+		Parent fxmlAdminLogin = FXMLLoader.load(getClass().getResource("/view/AdminPage.fxml"));
 		adminLogin = new Scene(fxmlAdminLogin);
-		Parent fxmlTeacherLogin = FXMLLoader.load(getClass().getResource("/view/TeacherLogin.fxml"));
+		Parent fxmlTeacherLogin = FXMLLoader.load(getClass().getResource("/view/TeacherPage.fxml"));
 		teacherLogin = new Scene(fxmlTeacherLogin);
-		Parent fxmlStudentLogin = FXMLLoader.load(getClass().getResource("/view/StudentLogin.fxml"));
+		Parent fxmlStudentLogin = FXMLLoader.load(getClass().getResource("/view/StudentPage.fxml"));
 		studentLogin = new Scene(fxmlStudentLogin);
 		stage.setScene(menuLogin); 
 		stage.show();

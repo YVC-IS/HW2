@@ -5,33 +5,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.menuLoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="404.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.menuLoginController">
    <children>
-      <Label contentDisplay="CENTER" layoutX="110.0" prefHeight="52.0" prefWidth="247.0" text="Login Menu">
+      <Label contentDisplay="CENTER" layoutX="79.0" prefHeight="52.0" prefWidth="247.0" text="Login Menu">
          <font>
             <Font name="Century Gothic" size="41.0" />
          </font>
       </Label>
-      <TextField fx:id="_userIdText" layoutX="181.0" layoutY="182.0" promptText="User ID" />
-      <TextField fx:id="_passwordIdText" layoutX="181.0" layoutY="239.0" promptText="Password" />
-      <Label layoutX="53.0" layoutY="178.0" prefHeight="34.0" prefWidth="117.0" text="User ID">
+      <TextField fx:id="_userIdText" layoutX="181.0" layoutY="169.0" promptText="User ID" />
+      <TextField fx:id="_passwordIdText" layoutX="181.0" layoutY="226.0" promptText="Password" />
+      <Label layoutX="53.0" layoutY="165.0" prefHeight="34.0" prefWidth="117.0" text="User ID">
          <font>
             <Font name="Century Gothic" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="53.0" layoutY="238.0" text="Password">
+      <Label layoutX="53.0" layoutY="225.0" text="Password">
          <font>
             <Font name="Century Gothic" size="22.0" />
          </font>
       </Label>
-      <Button fx:id="_loginBtn" layoutX="181.0" layoutY="292.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="152.0" text="Log In" />
-      <Label layoutX="37.0" layoutY="93.0" text="Select Type">
+      <Button fx:id="_loginBtn" layoutX="181.0" layoutY="292.0" mnemonicParsing="false" onAction="#_LoginAction" prefHeight="32.0" prefWidth="152.0" text="Log In" />
+      <Label layoutX="48.0" layoutY="93.0" text="Select Type">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
       <ChoiceBox fx:id="_choiseBox" layoutX="182.0" layoutY="95.0" prefWidth="150.0" />
+      <Line endX="292.0" layoutX="112.0" layoutY="61.0" startX="-112.0" />
+      <Line endX="-49.7071533203125" endY="294.0" layoutX="84.0" layoutY="46.0" startX="-49.70710754394531" startY="15.0" />
    </children>
 </AnchorPane>
