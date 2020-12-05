@@ -11,50 +11,43 @@ import javafx.scene.Scene;
 
 public class Main extends Application {
 	private static Stage stage;
+	private static Scene login;
+	private static Scene admin;
 	private static Scene menuLogin;
 	private static Scene adminLogin;
 	private static Scene teacherLogin;
 	private static Scene studentLogin;
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-
-
-		stage = primaryStage;
-		primaryStage.setTitle("Main Login");
-		Parent fxmlLogin = FXMLLoader.load(getClass().getResource("/view/Login.fxml"));
-		menuLogin = new Scene(fxmlLogin);
-		Parent fxmlAdminLogin = FXMLLoader.load(getClass().getResource("/view/AdminPage.fxml"));
-		adminLogin = new Scene(fxmlAdminLogin);
-		Parent fxmlTeacherLogin = FXMLLoader.load(getClass().getResource("/view/TeacherPage.fxml"));
-		teacherLogin = new Scene(fxmlTeacherLogin);
-		Parent fxmlStudentLogin = FXMLLoader.load(getClass().getResource("/view/StudentPage.fxml"));
-		studentLogin = new Scene(fxmlStudentLogin);
-		stage.setScene(menuLogin); 
-		stage.show();
+	public void start(Stage stage) throws Exception {
+		Main.stage = stage;
+		Main.load(this.getClass());
+		Main.load("Login");
+		Main.stage.show();
 	}
 
-	public static void menuSwitch(String request)
-	{
-		switch (request) {
-			case "Menu" -> stage.setScene(menuLogin);
-			case "Admin" -> stage.setScene(adminLogin);
-			case "Teacher" -> stage.setScene(teacherLogin);
-			case "Student" -> stage.setScene(studentLogin);
+	private static void load(final Class<?> cls) throws IOException {
+		Parent login = FXMLLoader.load(cls.getResource("/view/Login.fxml"));
+		Main.login = new Scene(login);
+
+		Parent admin = FXMLLoader.load(cls.getResource("/view/AdminPage.fxml"));
+		Main.admin = new Scene(admin);
+	}
+
+	public static void load(String key) {
+		switch (key) {
+			case "Login" -> {
+				Main.stage.setTitle("Login");
+				Main.stage.setScene(Main.login);
+			}
+			case "Admin" -> {
+				Main.stage.setTitle("Admin");
+				Main.stage.setScene(Main.admin);
+			}
 		}
 	}
 	
 	public static void main(String[] args) {
-		try {
-			List<User> users = User.read();
-
-			for (User user : users)
-				System.out.println(user);
-
-			launch(args);
-		}
-		catch (IOException exception) {
-			System.out.println(exception.getMessage());
-		}
+		launch(args);
 	}
 }
