@@ -9,8 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
-import javax.swing.*;
-
 public class menuLoginController {
 
     ObservableList list = FXCollections.observableArrayList("Admin","Teacher","Assistant","Student");

@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Login {
     private final ObservableList<String> types = FXCollections.observableArrayList("Admin", "Lecturer", "Practitioner", "Student");
