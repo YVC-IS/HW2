@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import application.Main;
 import javafx.collections.FXCollections;
@@ -44,7 +44,7 @@ public class menuLoginController {
         if ((user.equals("Admin"))&& (_userIdText.getText().equals("ADMIN")) && (_passwordIdText.getText().equals("ADMIN")))
 
         {
-            Main.menuSwitch("Admin");
+            Main.load("Admin");
         }
         else
             {

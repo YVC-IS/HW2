@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import application.Main;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ public class allUsersLoginController  {
     @FXML
     void _adminBtnCancelClick() {
 
-        Main.menuSwitch("Menu");
+        Main.load("Login");
 
     }
 
@@ -51,7 +51,7 @@ public class allUsersLoginController  {
     @FXML
     void _teacherLoginBtnCancelClick()
     {
-        Main.menuSwitch("Menu");
+        Main.load("Login");
 
     }
 
@@ -75,7 +75,7 @@ public class allUsersLoginController  {
     void _studentLoginBtnCancelClick()
     {
 
-        Main.menuSwitch("Menu");
+        Main.load("Login");
 
     }
 
