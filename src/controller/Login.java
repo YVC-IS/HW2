@@ -29,6 +29,7 @@ public class Login {
         this.type.setItems(this.types);
     }
 
+    private String _userType; // this is a variable for collecting type of User for switch case bellow
     @FXML
     void click() {
         try {
@@ -36,16 +37,32 @@ public class Login {
                 if (user.getType().equalsIgnoreCase(this.type.getValue()) &&
                         user.getUser().equals(this.user.getText()) &&
                         user.getPass().equals(this.pass.getText())) {
-                    Main.load("Admin");
-                    return;
+                        _userType = this.type.getValue();
+
+
+                        switch (_userType)
+                        {
+                            case "Student" -> { Main.load("Student") ;break; }
+                    }
+                        return;
                 }
             }
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setContentText("Enter Valid UserID or Password");
-            alert.show();
+
+            setAlert();  // Alert function' see bellow
         } catch (IOException exception) {
             System.out.println(exception.getMessage());
         }
+
+
+    }
+
+    // Its better to see it as separate function lol
+
+    private void setAlert ()
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error Message");
+        alert.setContentText("Enter Valid UserID or Password");
+        alert.show();
     }
 }

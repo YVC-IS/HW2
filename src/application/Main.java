@@ -12,6 +12,7 @@ public class Main extends Application {
 	private static Stage stage;
 	private static Scene login;
 	private static Scene admin;
+	private static Scene studentPage;
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -27,6 +28,9 @@ public class Main extends Application {
 
 		Parent admin = FXMLLoader.load(cls.getResource("/view/AdminPage.fxml"));
 		Main.admin = new Scene(admin);
+
+		Parent student = FXMLLoader.load(cls.getResource("/view/StudentPage.fxml"));
+		Main.studentPage = new Scene(student);
 	}
 
 	public static void load(String key) {
@@ -38,6 +42,10 @@ public class Main extends Application {
 			case "Admin" -> {
 				Main.stage.setTitle("Admin");
 				Main.stage.setScene(Main.admin);
+			}
+			case "Student" -> {
+				Main.stage.setTitle("Student's page");
+				Main.stage.setScene(Main.studentPage);
 			}
 		}
 	}
