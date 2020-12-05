@@ -1,7 +1,6 @@
 package application;
 	
 import java.io.IOException;
-import java.util.List;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,10 +12,6 @@ public class Main extends Application {
 	private static Stage stage;
 	private static Scene login;
 	private static Scene admin;
-	private static Scene menuLogin;
-	private static Scene adminLogin;
-	private static Scene teacherLogin;
-	private static Scene studentLogin;
 
 	@Override
 	public void start(Stage stage) throws Exception {
