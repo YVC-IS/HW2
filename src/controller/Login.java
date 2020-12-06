@@ -44,6 +44,7 @@ public class Login {
                         {
                             case "Student" -> { Main.load("Student") ;break; }
                             case "Admin" -> {Main.load("Admin"); break;}
+                            case "Lecturer" -> {Main.load("Lecturer"); break;}
                     }
                         return;
                 }
