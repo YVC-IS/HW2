@@ -25,6 +25,7 @@ public abstract class Person {
         return this.birthdate;
     }
 
+
     @Override
     public String toString() {
         return String.format("id: %d | name: %s | birthdate: %s", this.id, this.name, this.birthdate);
