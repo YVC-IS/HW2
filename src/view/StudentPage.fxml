@@ -7,20 +7,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="486.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentPageController">
+<AnchorPane prefHeight="483.0" prefWidth="637.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StudentPageController">
    <children>
       <Label layoutX="115.0" layoutY="33.0" text="Student's status page">
          <font>
             <Font name="Century Gothic" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="_getStatusBtn" layoutX="187.0" layoutY="100.0" mnemonicParsing="false" onAction="#_getStatus" prefHeight="46.0" prefWidth="227.0" text="Get Status" />
-      <Button fx:id="_returnBtn" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" onAction="#_returnToMain" prefHeight="46.0" prefWidth="142.0" text="Return" />
-      <TableView fx:id="_studentTable" layoutY="160.0" prefHeight="256.0" prefWidth="632.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0">
+      <Button fx:id="_getStatusBtn" layoutX="187.0" layoutY="100.0" mnemonicParsing="false" onAction="#_getStatus" prefHeight="46.0" prefWidth="227.0" text="Get Status" AnchorPane.leftAnchor="187.0" />
+      <Button fx:id="_returnBtn" layoutX="14.0" layoutY="426.0" mnemonicParsing="false" onAction="#_returnToMain" prefHeight="46.0" prefWidth="142.0" text="Return" AnchorPane.leftAnchor="14.0" />
+      <TableView fx:id="_studentTable" layoutY="160.0" prefHeight="255.0" prefWidth="632.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0">
         <columns>
           <TableColumn fx:id="_columnId" prefWidth="295.0" text="ID" />
           <TableColumn fx:id="_columnName" minWidth="0.0" prefWidth="199.0" text="Name" />
-            <TableColumn fx:id="_columnBirthday" prefWidth="137.0" text="Birthday" />
+            <TableColumn fx:id="_columnBirthday" prefWidth="123.0" text="Birthday" />
         </columns>
       </TableView>
    </children>

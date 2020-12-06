@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,7 +14,9 @@ public class Main extends Application {
 	private static Scene login;
 	private static Scene admin;
 	private static Scene studentPage;
-	private static Scene lectuderPage;
+	private static Scene lecturerPage;
+	private static StackPane pane = new StackPane();
+
 
 	@Override
 	public void start(Stage stage) throws Exception {
@@ -43,8 +46,8 @@ public class Main extends Application {
 
 
 		Parent lecturer = FXMLLoader.load(cls.getResource("/view/LecturerPage.fxml"));
-		Main.lectuderPage = new Scene(lecturer);
-		Main.lectuderPage.getStylesheets().add("/application/application.css");
+		Main.lecturerPage = new Scene(lecturer);
+		Main.lecturerPage.getStylesheets().add("/application/application.css");
 	}
 
 	public static void load(String key) {
@@ -63,7 +66,7 @@ public class Main extends Application {
 			}
 			case "Lecturer" -> {
 				Main.stage.setTitle("Lecturer's Page");
-				Main.stage.setScene(Main.lectuderPage);
+				Main.stage.setScene(Main.lecturerPage);
 			}
 
 
