@@ -29,4 +29,5 @@ public abstract class Person {
     public String toString() {
         return String.format("id: %d | name: %s | birthdate: %s", this.id, this.name, this.birthdate);
     }
+
 }
