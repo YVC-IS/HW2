@@ -43,6 +43,7 @@ public class Login {
                         switch (_userType)
                         {
                             case "Student" -> { Main.load("Student") ;break; }
+                            case "Admin" -> {Main.load("Admin"); break;}
                     }
                         return;
                 }

@@ -23,14 +23,22 @@ public class Main extends Application {
 	}
 
 	private static void load(final Class<?> cls) throws IOException {
+
+		// -- -- -- -- -- This is a Pages creator
+
 		Parent login = FXMLLoader.load(cls.getResource("/view/Login.fxml"));
 		Main.login = new Scene(login);
+		Main.login.getStylesheets().add("/application/application.css");
+
 
 		Parent admin = FXMLLoader.load(cls.getResource("/view/AdminPage.fxml"));
 		Main.admin = new Scene(admin);
+		Main.admin.getStylesheets().add("/application/application.css");
+
 
 		Parent student = FXMLLoader.load(cls.getResource("/view/StudentPage.fxml"));
 		Main.studentPage = new Scene(student);
+		Main.studentPage.getStylesheets().add("/application/application.css");
 	}
 
 	public static void load(String key) {
