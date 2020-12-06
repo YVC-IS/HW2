@@ -7,21 +7,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="486.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.allUsersLoginController">
+<AnchorPane prefHeight="486.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.StudentPageCantroller">
    <children>
       <Label layoutX="115.0" layoutY="33.0" text="Student's status page">
          <font>
             <Font name="Century Gothic" size="36.0" />
          </font>
       </Label>
-      <TableView layoutX="115.0" layoutY="180.0" prefHeight="200.0" prefWidth="371.0">
+      <TableView fx:id="_studentTable" layoutX="115.0" layoutY="180.0" prefHeight="200.0" prefWidth="371.0">
         <columns>
           <TableColumn prefWidth="127.0" text="Course" />
           <TableColumn prefWidth="122.0" text="Grade" />
             <TableColumn minWidth="1.0" prefWidth="121.0" text="Fail/Pass" />
         </columns>
       </TableView>
-      <Button layoutX="187.0" layoutY="100.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="227.0" text="Get Status" />
-      <Button layoutX="55.0" layoutY="414.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="142.0" text="Go Back" />
+      <Button fx:id="_getStatusBtn" layoutX="187.0" layoutY="100.0" mnemonicParsing="false" onAction="#_getStatus" prefHeight="46.0" prefWidth="227.0" text="Get Status" />
+      <Button fx:id="_returnBtn" layoutX="55.0" layoutY="414.0" mnemonicParsing="false" onAction="#_returnToMain" prefHeight="46.0" prefWidth="142.0" text="Return" />
    </children>
 </AnchorPane>
