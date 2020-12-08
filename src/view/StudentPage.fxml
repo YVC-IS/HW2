@@ -19,7 +19,7 @@
       <TableView fx:id="_studentTable" layoutY="160.0" prefHeight="255.0" prefWidth="632.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="160.0">
         <columns>
           <TableColumn fx:id="_columnId" prefWidth="259.0" text="Course" />
-          <TableColumn fx:id="_columnName" minWidth="0.0" prefWidth="235.0" text="Class" />
+          <TableColumn fx:id="_columnName" minWidth="0.0" onEditCommit="#_onEditChanged" prefWidth="235.0" text="Class" />
             <TableColumn fx:id="_columnBirthday" prefWidth="123.0" text="Grade" />
         </columns>
       </TableView>

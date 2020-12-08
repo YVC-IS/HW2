@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.IntegerStringConverter;
@@ -58,12 +59,13 @@ public class StudentPageController {
 
     @FXML
     void _getStatus() {
-        _studentTable.setEditable(true);
-        // _columnId.setCellValueFactory(new PropertyValueFactory<Student,Integer>("ID"));
-        //_columnBirthday.setCellValueFactory(new PropertyValueFactory<Student,Date>("Birthday"));
-        _columnName.setCellValueFactory(new PropertyValueFactory<Student,String>("Name"));
+        // have to do that for each column
+        _studentTable.setEditable(true); // make the table editable
+        _columnName.setCellValueFactory(new PropertyValueFactory<Student,String>("Name")); // on column _columnName set the name of the object (Student)
         _columnName.setCellFactory(TextFieldTableCell.forTableColumn());
 
+        // _columnId.setCellValueFactory(new PropertyValueFactory<Student,Integer>("ID"));
+        //_columnBirthday.setCellValueFactory(new PropertyValueFactory<Student,Date>("Birthday"));
         _studentTable.setItems(students);
     }
 
@@ -73,5 +75,14 @@ public class StudentPageController {
     }
 
 
+
+
+    @FXML
+    void _onEditChanged(TableColumn.CellEditEvent<Student,String> event) {
+
+        Student st = _studentTable.getSelectionModel().getSelectedItem();
+
+
+    }
 
 }
