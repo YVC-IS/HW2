@@ -5,16 +5,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.converter.IntegerStringConverter;
 import model.Person;
 import model.Student;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class StudentPageController {
@@ -67,6 +65,10 @@ public class StudentPageController {
         // _columnId.setCellValueFactory(new PropertyValueFactory<Student,Integer>("ID"));
         //_columnBirthday.setCellValueFactory(new PropertyValueFactory<Student,Date>("Birthday"));
         _studentTable.setItems(students);
+
+
+        //This will allow the table to select multiple rows at once
+        _studentTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     @FXML
@@ -83,6 +85,40 @@ public class StudentPageController {
         Student st = _studentTable.getSelectionModel().getSelectedItem();
 
 
+    }
+
+
+    /**
+     * This method will remove the selected row(s) from the table
+     */
+
+
+    public void deleteButtonPushed()
+    {
+        ObservableList<Student> selectedRows, allPeople;
+        allPeople = _studentTable.getItems();
+
+        //this gives us the rows that were selected
+        selectedRows = _studentTable.getSelectionModel().getSelectedItems();
+
+        //loop over the selected rows and remove the Person objects from the table
+        for (Student st: selectedRows)
+        {
+            allPeople.remove(st);
+        }
+    }
+
+
+    /**
+     * This method will create a new Student object and add it to the table
+     */
+    public void newStudentButtonPushed()
+    {
+        Student newStudent = new Student(_columnName.getText(),new Date());
+
+        //Get all the items from the table as a list, then add the new student to
+        //the list
+        _studentTable.getItems().add(newStudent);
     }
 
 }
