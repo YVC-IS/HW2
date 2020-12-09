@@ -28,7 +28,7 @@ public class allUsersLoginController  {
     @FXML
     void _adminBtnCancelClick() {
 
-        Main.load("Login");
+        Main.load("Login",null);
 
     }
 
@@ -51,7 +51,7 @@ public class allUsersLoginController  {
     @FXML
     void _teacherLoginBtnCancelClick()
     {
-        Main.load("Login");
+        Main.load("Login",null);
 
     }
 
@@ -75,7 +75,7 @@ public class allUsersLoginController  {
     void _studentLoginBtnCancelClick()
     {
 
-        Main.load("Login");
+        Main.load("Login",null);
 
     }
 

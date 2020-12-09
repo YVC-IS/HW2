@@ -2,14 +2,19 @@ package controller;
 
 import application.Main;
 import application.User;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import model.Data;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Login {
+    public static ObservableList<Data> lstData;
     private final ObservableList<String> types = FXCollections.observableArrayList("Admin", "Lecturer", "Practitioner", "Student");
 
     @FXML
@@ -42,9 +47,10 @@ public class Login {
 
                         switch (_userType)
                         {
-                            case "Student" -> { Main.load("Student") ;break; }
-                            case "Admin" -> {Main.load("Admin"); break;}
-                            case "Lecturer" -> {Main.load("Lecturer"); break;}
+                            case "Student" -> { Main.load("Student",null) ;break; }
+                            case "Admin" -> {Main.load("Admin",null); break;}
+                            case "Lecturer" -> {
+                                Main.load("Lecturer", null); break;}
                     }
                         return;
                 }

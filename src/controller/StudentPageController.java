@@ -13,6 +13,7 @@ import model.Person;
 import model.Student;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.Date;
 
 public class StudentPageController {
@@ -65,6 +66,7 @@ public class StudentPageController {
         // _columnId.setCellValueFactory(new PropertyValueFactory<Student,Integer>("ID"));
         //_columnBirthday.setCellValueFactory(new PropertyValueFactory<Student,Date>("Birthday"));
         _studentTable.setItems(students);
+        System.out.println(Arrays.toString(students.toArray()));
 
 
         //This will allow the table to select multiple rows at once
@@ -73,7 +75,7 @@ public class StudentPageController {
 
     @FXML
     void _returnToMain() {
-        Main.load("Login");
+        Main.load("Login",null);
     }
 
 

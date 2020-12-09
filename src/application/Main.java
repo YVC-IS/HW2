@@ -1,6 +1,7 @@
 package application;
 	
 import java.io.IOException;
+import java.util.List;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +9,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import model.Data;
 
 public class Main extends Application {
 	private static Stage stage;
@@ -16,13 +18,14 @@ public class Main extends Application {
 	private static Scene studentPage;
 	private static Scene lecturerPage;
 	private static StackPane pane = new StackPane();
+	private static List <Data> data;
 
 
 	@Override
 	public void start(Stage stage) throws Exception {
 		Main.stage = stage;
 		Main.load(this.getClass());
-		Main.load("Login");
+		Main.load("Login", null);
 		Main.stage.show();
 	}
 
@@ -50,7 +53,7 @@ public class Main extends Application {
 		Main.lecturerPage.getStylesheets().add("/application/application.css");
 	}
 
-	public static void load(String key) {
+	public static void load(String key, List<Data> data) {
 		switch (key) {
 			case "Login" -> {
 				Main.stage.setTitle("Login");

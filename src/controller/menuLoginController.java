@@ -42,7 +42,7 @@ public class menuLoginController {
         if ((user.equals("Admin"))&& (_userIdText.getText().equals("ADMIN")) && (_passwordIdText.getText().equals("ADMIN")))
 
         {
-            Main.load("Admin");
+            Main.load("Admin",null);
         }
         else
             {
