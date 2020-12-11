@@ -19,9 +19,9 @@
             <columns>
                 <TableColumn fx:id="_studentIdColumn" prefWidth="107.0" text="Student ID" />
                 <TableColumn fx:id="_studentNameColumn" prefWidth="210.0" text="Student Name" />
-                <TableColumn fx:id="_studentCourseColumn" prefWidth="235.0" text="Course" />
-                <TableColumn fx:id="_studentClassColumn" prefWidth="187.0" text="Class" />
-                <TableColumn fx:id="_studentGradeColumn" prefWidth="137.0" text="Grade" />
+                <TableColumn fx:id="_studentCourseColumn" onEditCommit="#_changeCourse" prefWidth="184.0" text="Course" />
+                <TableColumn fx:id="_studentClassColumn" onEditCommit="#_changeClass" prefWidth="213.0" text="Class" />
+                <TableColumn fx:id="_studentGradeColumn" onEditCommit="#_changeGrade" prefWidth="162.0" text="Grade" />
             </columns>
         </TableView>
         <Button fx:id="_saveBtn" layoutX="765.0" layoutY="428.0" mnemonicParsing="false" onAction="#_saveData" prefHeight="61.0" prefWidth="100.0" text="Save" />

@@ -50,7 +50,14 @@ public class Login {
                             case "Student" -> { Main.load("Student",null) ;break; }
                             case "Admin" -> {Main.load("Admin",null); break;}
                             case "Lecturer" -> {
-                                Main.load("Lecturer", null); break;}
+
+                                Data data1 = new Data("1","tt","aa","cc","ff");
+                                Data data2 = new Data("2","dd","bb","dd","hh");
+                                ObservableList<Data> data = FXCollections.observableArrayList (
+                                        data1,
+                                        data2);
+                                lstData = data;
+                                Main.load("Lecturer", lstData); break;}
                     }
                         return;
                 }

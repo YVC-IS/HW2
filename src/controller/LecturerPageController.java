@@ -12,12 +12,13 @@ import javafx.util.converter.IntegerStringConverter;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import model.Data;
-import model.Person;
-import model.Student;
+
 
 import java.util.Arrays;
 
 public class LecturerPageController {
+
+    ObservableList<Data> oldData = FXCollections.observableArrayList (Login.lstData);
 
     @FXML
     private TableView<Data> _lecturerTable;
@@ -45,59 +46,62 @@ public class LecturerPageController {
 
 
 
-
-
-
-
-
-
     @FXML
     void _returnToMenu() { Main.load("Login",null); }
 
 
 
-
-    @FXML
-    void _saveData() {
-
-    }
-
     @FXML
     private Button _getDataBtn;
 
-
-    Data data1 = new Data("1","tt","aa","cc","ff");
-    Data data2 = new Data("2","dd","bb","dd","hh");
-    ObservableList<Data> data = FXCollections.observableArrayList (
-            data1,
-            data2);
-
-    //  List<Data> lst1 = new ArrayList<>();
-    //  lst1.add(data1);
-    //  lst1.add(data2);
 
 
     @FXML
     void _getData() {
 
         _lecturerTable.setEditable(true);
-        _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<Data,String>("Course"));
-       // _studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("Course"));
+        _studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        _studentClassColumn.setCellValueFactory(new PropertyValueFactory<Data,String>("Klass"));
-       // _studentClassColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        _studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("Klass"));
+        _studentClassColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<Data,String>("Grade"));
-        //_studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
+        _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        System.out.println(Arrays.toString(data.toArray()));
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
 
-        _lecturerTable.setItems(data);
+        _lecturerTable.setItems(Login.lstData);
 
 
         //This will allow the table to select multiple rows at once
-        //_lecturerTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        _lecturerTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         //System.out.println(Arrays.toString(Login.lstData.toArray()));
+
+    }
+
+
+    @FXML
+    void _changeClass(TableColumn.CellEditEvent event) {
+
+        Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
+        dataSelected.setKlass(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
+    }
+
+    @FXML
+    void _changeCourse(TableColumn.CellEditEvent event) {
+
+    }
+
+    @FXML
+    void _changeGrade(TableColumn.CellEditEvent event) {
+
+    }
+
+    @FXML
+    void _saveData() {
 
     }
 
