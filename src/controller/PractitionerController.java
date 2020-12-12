@@ -14,9 +14,10 @@ import javafx.scene.control.cell.TextFieldTableCell;
 
 import model.Data;
 
-public class Lecturer {
+public class PractitionerController
+{
     @FXML
-    private TableView<Data> _lecturerTable;
+    private TableView<Data> _practitionerTable;
 
     @FXML
     private Button _returnBtn;
@@ -49,14 +50,13 @@ public class Lecturer {
 
     @FXML
     void _getData() {
-        _lecturerTable.setEditable(true);
+        _practitionerTable.setEditable(true);
 
         _studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         //_studentIdColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
         _studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         //_studentNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
         _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("Course"));
         //_studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
@@ -68,16 +68,16 @@ public class Lecturer {
 
         System.out.println(Arrays.toString(Login.lstData.toArray()));
 
-        _lecturerTable.setItems(Login.lstData);
+        _practitionerTable.setItems(Login.lstData);
 
         //This will allow the table to select multiple rows at once
-        _lecturerTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        _practitionerTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         //System.out.println(Arrays.toString(Login.lstData.toArray()));
     }
 
     @FXML
     void _changeClass(TableColumn.CellEditEvent event) {
-        Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
+        Data dataSelected = _practitionerTable.getSelectionModel().getSelectedItem();
         dataSelected.setKlass(event.getNewValue().toString());
         System.out.println(Arrays.toString(Login.lstData.toArray()));
 
@@ -90,7 +90,7 @@ public class Lecturer {
 
     @FXML
     void _changeGrade(TableColumn.CellEditEvent event) {
-        Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
+        Data dataSelected = _practitionerTable.getSelectionModel().getSelectedItem();
         dataSelected.setGarde(event.getNewValue().toString());
         System.out.println(Arrays.toString(Login.lstData.toArray()));
 
