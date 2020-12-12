@@ -20,7 +20,7 @@
                 <TableColumn fx:id="_studentIdColumn" onEditCommit="#_changeId" prefWidth="107.0" text="Student ID" />
                 <TableColumn fx:id="_studentNameColumn" onEditCommit="#_changeName" prefWidth="210.0" text="Student Name" />
                 <TableColumn fx:id="_studentCourseColumn" onEditCommit="#_changeCourse" prefWidth="184.0" text="Course" />
-                <TableColumn fx:id="_studentClassColumn" onEditCommit="#_changeClass" prefWidth="213.0" text="Class" />
+                <TableColumn fx:id="_studentClassColumn" onEditCommit="#_changeClassroom" prefWidth="213.0" text="Class" />
                 <TableColumn fx:id="_studentGradeColumn" onEditCommit="#_changeGrade" prefWidth="162.0" text="Grade" />
             </columns>
         </TableView>

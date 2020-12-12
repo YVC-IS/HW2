@@ -10,6 +10,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import model.Data;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Admin {
@@ -60,9 +64,9 @@ public class Admin {
         _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
         _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        System.out.println(Arrays.toString(Login.data.toArray()));
 
-        _adminTable.setItems(Login.lstData);
+        _adminTable.setItems(Login.data);
 
         //This will allow the table to select multiple rows at once
         _adminTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -86,24 +90,33 @@ public class Admin {
         }
     }
 
-    public void _changeCourse(TableColumn.CellEditEvent cellEditEvent) {
-    }
-
     @FXML
     void _changeId(TableColumn.CellEditEvent event) {
-
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
         dataSelected.setId(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
-
     }
 
     @FXML
     void _changeName(TableColumn.CellEditEvent event) {
-
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
         dataSelected.setName(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+    }
 
+    @FXML
+    void _changeCourse(TableColumn.CellEditEvent event) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setCourse(event.getNewValue().toString());
+    }
+
+    @FXML
+    void _changeClassroom(TableColumn.CellEditEvent event) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setKlass(event.getNewValue().toString());
+    }
+
+    @FXML
+    void _changeGrade(TableColumn.CellEditEvent event) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setGarde(event.getNewValue().toString());
     }
 }
