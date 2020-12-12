@@ -50,11 +50,11 @@ public class Admin {
         _studentIdColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         _studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         _studentNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("Course"));
+        _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("course"));
         _studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        _studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("Klass"));
+        _studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("classroom"));
         _studentClassColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-        _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
+        _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("garde"));
         _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         _adminTable.setItems(Login.data);
         _adminTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);

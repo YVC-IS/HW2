@@ -45,36 +45,27 @@ public class Login {
                     switch (this.type.getValue())
                     {
                         case "Admin" -> {
-                            Login.load("admin.ser");
+                            Login.load("data/admin.ser");
                             Main.load("Admin");
                         }
                         case "Lecturer" -> {
-                            Login.load("lecturer.ser");
+                            Login.load("data/lecturer.ser");
                             Main.load("Lecturer");
-//                            Data data1 = new Data("1","tt","aa","cc","ff");
-//                            Data data2 = new Data("2","dd","bb","dd","hh");
-//                            ObservableList<Data> data = FXCollections.observableArrayList(data1, data2);
-//                            Login.data = data;
-//                            Main.load("Lecturer");
                         }
                         case "Practitioner" -> {
-                            Login.load("practitioner.ser");
+                            Login.load("data/practitioner.ser");
                             Main.load("Practitioner");
-//                            Data data1 = new Data("1","tt","aa","cc","ff");
-//                            Data data2 = new Data("2","dd","bb","dd","hh");
-//                            ObservableList<Data> data = FXCollections.observableArrayList(data1, data2);
-//                            Login.data = data;
-//                            Main.load("Practitioner");
                         }
                         case "Student" -> {
-//                            Login.load("student.ser");
-//                            Main.load("Student");
-                            Data data1 = new Data("1", "tt", "aa", "cc", "ff");
-                            Data data2 = new Data("2", "dd", "bb", "dd", "hh");
-                            ObservableList<Data> data = FXCollections.observableArrayList(data1, data2);
-                            Login.data = data;
+                            Login.load("data/student.ser");
                             Main.load("Student");
                         }
+//                        Data data1 = new Data("1", "nizar", "java", "A", "");
+//                        Data data2 = new Data("2", "murad", "java", "B", "");
+//                        Data data3 = new Data("3", "gaston", "java", "A", "");
+//                        Data data4 = new Data("4", "denis", "java", "A", "97");
+//                        Data data5 = new Data("5", "idan", "java", "B", "92");
+//                        Login.data = FXCollections.observableArrayList(data1, data2, data3, data4, data5);
                     }
                     return;
                 }
