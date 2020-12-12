@@ -81,12 +81,46 @@ public class Admin {
         }
     }
 
-    public void _changeCourse(TableColumn.CellEditEvent cellEditEvent) {
+    @FXML
+    void _changeClass(TableColumn.CellEditEvent event) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setKlass(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
     }
 
-    public void _changeClass(TableColumn.CellEditEvent cellEditEvent) {
+    @FXML
+    void _changeCourse(TableColumn.CellEditEvent event) {
+
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setCourse(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
     }
 
-    public void _changeGrade(TableColumn.CellEditEvent cellEditEvent) {
+    @FXML
+    void _changeGrade(TableColumn.CellEditEvent event) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setGarde(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
+    }
+
+    @FXML
+    void _changeId(TableColumn.CellEditEvent event) {
+
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setId(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
+    }
+
+    @FXML
+    void _changeName(TableColumn.CellEditEvent event) {
+
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setName(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
     }
 }
