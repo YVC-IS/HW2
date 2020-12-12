@@ -15,10 +15,23 @@ import model.Data;
 
 
 import java.util.Arrays;
+import java.util.SortedMap;
+import java.util.stream.Collectors;
 
-public class LecturerPageController {
+public class LecturerPageController{
 
-    ObservableList<Data> oldData = FXCollections.observableArrayList (Login.lstData);
+    // private ObservableList<Data> oldData = FXCollections.observableArrayList ();
+    private ObservableList<Data> newData = FXCollections.observableArrayList ();
+
+
+/*    private void cloneTheData (ObservableList<Data> data)
+    {
+        for (Data d: Login.lstData)
+        {
+            oldData.add(new Data(d));
+        }
+    }*/
+
 
     @FXML
     private TableView<Data> _lecturerTable;
@@ -59,7 +72,17 @@ public class LecturerPageController {
     @FXML
     void _getData() {
 
+        // cloneTheData(Login.lstData);
+        newData = Login.lstData;
+
         _lecturerTable.setEditable(true);
+
+        _studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+
+        _studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+
+
         _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("Course"));
         _studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
@@ -71,7 +94,7 @@ public class LecturerPageController {
 
         System.out.println(Arrays.toString(Login.lstData.toArray()));
 
-        _lecturerTable.setItems(Login.lstData);
+        _lecturerTable.setItems(newData);
 
 
         //This will allow the table to select multiple rows at once
@@ -81,28 +104,76 @@ public class LecturerPageController {
     }
 
 
+
+
     @FXML
     void _changeClass(TableColumn.CellEditEvent event) {
 
         Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
         dataSelected.setKlass(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        //System.out.println(Arrays.toString(Login.lstData.toArray()));
 
     }
 
     @FXML
     void _changeCourse(TableColumn.CellEditEvent event) {
 
+        Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
+        dataSelected.setCourse(event.getNewValue().toString());
+        //System.out.println(Arrays.toString(Login.lstData.toArray()));
+
     }
 
     @FXML
     void _changeGrade(TableColumn.CellEditEvent event) {
+
+        Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
+        dataSelected.setGarde(event.getNewValue().toString());
+        //System.out.println(Arrays.toString(Login.lstData.toArray()));
 
     }
 
     @FXML
     void _saveData() {
 
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
     }
+
+
+
+
+/*
+    @FXML
+    void _getDataForCancelation( ObservableList<Data> data) {
+
+         ObservableList<Data> canceledData = FXCollections.observableArrayList (data);
+
+
+        _lecturerTable.setEditable(true);
+
+        _studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+
+        _studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
+
+
+        _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("Course"));
+        _studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        _studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("Klass"));
+        _studentClassColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
+        _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
+        _lecturerTable.setItems(canceledData);
+
+
+
+
+    }*/
 
 }

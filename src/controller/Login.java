@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Login {
+public class Login{
     public static ObservableList<Data> lstData;
     private final ObservableList<String> types = FXCollections.observableArrayList("Admin", "Lecturer", "Practitioner", "Student");
 
@@ -57,6 +57,8 @@ public class Login {
                                         data1,
                                         data2);
                                 lstData = data;
+                                setLstData(lstData);
+
                                 Main.load("Lecturer", lstData); break;}
                     }
                         return;
@@ -80,4 +82,11 @@ public class Login {
         alert.setContentText("Enter Valid UserID or Password");
         alert.show();
     }
+
+
+    private void setLstData (ObservableList<Data> list)
+    {
+        this.lstData = list;
+    }
+
 }

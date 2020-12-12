@@ -16,6 +16,16 @@ public class Data {
         this.garde = garde;
     }
 
+    // Copy constructor
+    public Data(Data data) {
+        this.id = data.id;
+        this.name = data.name;
+        this.course = data.course;
+        this.klass = data.klass;
+        this.garde = data.garde;
+
+    }
+
     public String getId() {
         return id;
     }
