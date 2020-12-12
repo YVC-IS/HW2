@@ -1,5 +1,7 @@
 user,pass,type
-u1,p1,admin
-u2,p2,lecturer
-u3,p3,practitioner
-u4,p4,student
+yvc,yvc,admin
+nizar,nizar,lecturer
+murad,murad,lecturer
+gaston,gaston,practitioner
+denis,denis,student
+idan,idan,student

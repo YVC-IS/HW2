@@ -14,7 +14,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 
 import model.Data;
 
-public class PractitionerController
+public class Practitioner
 {
     @FXML
     private TableView<Data> _practitionerTable;
@@ -80,7 +80,6 @@ public class PractitionerController
         Data dataSelected = _practitionerTable.getSelectionModel().getSelectedItem();
         dataSelected.setKlass(event.getNewValue().toString());
         System.out.println(Arrays.toString(Login.lstData.toArray()));
-
     }
 
     @FXML
@@ -93,7 +92,6 @@ public class PractitionerController
         Data dataSelected = _practitionerTable.getSelectionModel().getSelectedItem();
         dataSelected.setGarde(event.getNewValue().toString());
         System.out.println(Arrays.toString(Login.lstData.toArray()));
-
     }
 
     @FXML

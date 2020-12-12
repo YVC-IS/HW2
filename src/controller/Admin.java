@@ -12,8 +12,7 @@ import model.Data;
 
 import java.util.Arrays;
 
-public class AdminController {
-
+public class Admin {
     @FXML
     private Button _returnBtn;
 
@@ -40,8 +39,6 @@ public class AdminController {
 
     @FXML
     private Button _getDataBtn;
-
-
 
     @FXML
     void _getData() {
@@ -79,10 +76,10 @@ public class AdminController {
 
     @FXML
     void _saveData() {
-
+        for (Data data : Login.lstData) {
+            data.write(data.getId());
+        }
     }
-
-
 
     public void _changeCourse(TableColumn.CellEditEvent cellEditEvent) {
     }
@@ -92,5 +89,4 @@ public class AdminController {
 
     public void _changeGrade(TableColumn.CellEditEvent cellEditEvent) {
     }
-
 }

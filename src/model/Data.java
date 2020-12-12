@@ -1,7 +1,8 @@
 package model;
 
-public class Data {
+import java.io.*;
 
+public class Data implements Serializable {
     private String id;
     private String name;
     private String course;
@@ -23,7 +24,6 @@ public class Data {
         this.course = data.course;
         this.klass = data.klass;
         this.garde = data.garde;
-
     }
 
     public String getId() {
@@ -66,14 +66,44 @@ public class Data {
         this.garde = garde;
     }
 
+    public Data read(String name) {
+        Data data = null;
+
+        try (FileInputStream file = new FileInputStream(name)) {
+            try (ObjectInputStream object = new ObjectInputStream(file)) {
+                data = (Data) object.readObject();
+            }
+        } catch (IOException | ClassNotFoundException exception) {
+            System.out.println(exception.getMessage());
+        }
+
+        return data;
+    }
+
+    public void write(String name) {
+        try (FileOutputStream file = new FileOutputStream(name)) {
+            try (ObjectOutputStream object = new ObjectOutputStream(file)) {
+                object.writeObject(this);
+                object.flush();
+            }
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Serial
+    private void readObject(ObjectInputStream stream) throws ClassNotFoundException, IOException {
+        stream.defaultReadObject();
+    }
+
+    @Serial
+    private void writeObject(ObjectOutputStream stream) throws IOException {
+        stream.defaultWriteObject();
+    }
+
     @Override
     public String toString() {
-        return "Data{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", course='" + course + '\'' +
-                ", klass='" + klass + '\'' +
-                ", garde='" + garde + '\'' +
-                '}';
+        return String.format("ID: %s | Name: %s | Course: %s | Classroom: %s, Grade: %s",
+                this.id, this.name, this.course, this.klass, this.garde);
     }
 }
