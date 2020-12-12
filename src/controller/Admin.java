@@ -1,13 +1,6 @@
 package controller;
 
 import application.Main;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
@@ -15,8 +8,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-
 import model.Data;
+
+import java.util.Arrays;
 
 public class Admin {
     @FXML
@@ -66,9 +60,9 @@ public class Admin {
         _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
         _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        // System.out.println(Arrays.toString(Login.data.toArray()));
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
 
-        _adminTable.setItems(Login.data);
+        _adminTable.setItems(Login.lstData);
 
         //This will allow the table to select multiple rows at once
         _adminTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -93,17 +87,23 @@ public class Admin {
     }
 
     public void _changeCourse(TableColumn.CellEditEvent cellEditEvent) {
-        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setCourse(cellEditEvent.getNewValue().toString());
     }
 
-    public void _changeClass(TableColumn.CellEditEvent cellEditEvent) {
+    @FXML
+    void _changeId(TableColumn.CellEditEvent event) {
+
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setKlass(cellEditEvent.getNewValue().toString());
+        dataSelected.setId(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
     }
 
-    public void _changeGrade(TableColumn.CellEditEvent cellEditEvent) {
+    @FXML
+    void _changeName(TableColumn.CellEditEvent event) {
+
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setGarde(cellEditEvent.getNewValue().toString());
+        dataSelected.setName(event.getNewValue().toString());
+        System.out.println(Arrays.toString(Login.lstData.toArray()));
+
     }
 }
