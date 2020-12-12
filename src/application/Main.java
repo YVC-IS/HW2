@@ -34,15 +34,15 @@ public class Main extends Application {
 		Main.login = new Scene(login);
 		Main.login.getStylesheets().add("/application/application.css");
 
-//		Parent admin = FXMLLoader.load(cls.getResource("/view/Admin.fxml"));
-//		Main.admin = new Scene(admin);
-//		Main.admin.getStylesheets().add("/application/application.css");
+ 		Parent admin = FXMLLoader.load(cls.getResource("/view/Admin.fxml"));
+		Main.admin = new Scene(admin);
+		Main.admin.getStylesheets().add("/application/application.css");
 
 		Parent lecturer = FXMLLoader.load(cls.getResource("/view/Lecturer.fxml"));
 		Main.lecturer = new Scene(lecturer);
 		Main.lecturer.getStylesheets().add("/application/application.css");
 
-		Parent practitioner = FXMLLoader.load(cls.getResource("/view/Lecturer.fxml"));
+		Parent practitioner = FXMLLoader.load(cls.getResource("/view/Practitioner.fxml"));
 		Main.practitioner = new Scene(practitioner);
 		Main.practitioner.getStylesheets().add("/application/application.css");
 

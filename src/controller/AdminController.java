@@ -1,9 +1,6 @@
 package controller;
 
 import application.Main;
-
-import java.util.Arrays;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
@@ -11,15 +8,17 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-
 import model.Data;
 
-public class Lecturer {
-    @FXML
-    private TableView<Data> _lecturerTable;
+import java.util.Arrays;
+
+public class AdminController {
 
     @FXML
     private Button _returnBtn;
+
+    @FXML
+    private TableView<Data> _adminTable;
 
     @FXML
     private TableColumn<Data, String> _studentIdColumn;
@@ -40,25 +39,23 @@ public class Lecturer {
     private Button _saveBtn;
 
     @FXML
-    void _returnToMenu() {
-        Main.load("Login");
-    }
-
-    @FXML
     private Button _getDataBtn;
+
+
 
     @FXML
     void _getData() {
-        _lecturerTable.setEditable(true);
+        _adminTable.setEditable(true);
 
         _studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-        //_studentIdColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        _studentIdColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
         _studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        //_studentNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        _studentNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+
 
         _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("Course"));
-        //_studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        _studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
         _studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("Klass"));
         _studentClassColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -68,36 +65,32 @@ public class Lecturer {
 
         System.out.println(Arrays.toString(Login.lstData.toArray()));
 
-        _lecturerTable.setItems(Login.lstData);
+        _adminTable.setItems(Login.lstData);
 
         //This will allow the table to select multiple rows at once
-        _lecturerTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        _adminTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         //System.out.println(Arrays.toString(Login.lstData.toArray()));
     }
 
     @FXML
-    void _changeClass(TableColumn.CellEditEvent event) {
-        Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
-        dataSelected.setKlass(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
-
-    }
-
-    @FXML
-    void _changeCourse(TableColumn.CellEditEvent event) {
-
-    }
-
-    @FXML
-    void _changeGrade(TableColumn.CellEditEvent event) {
-        Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
-        dataSelected.setGarde(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
-
+    void _returnToMenu()  {
+        Main.load("Login");
     }
 
     @FXML
     void _saveData() {
 
     }
+
+
+
+    public void _changeCourse(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
+    public void _changeClass(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
+    public void _changeGrade(TableColumn.CellEditEvent cellEditEvent) {
+    }
+
 }

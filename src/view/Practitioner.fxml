@@ -7,23 +7,24 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Lecturer">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="505.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PractitionerController">
     <children>
-        <Label layoutX="304.0" layoutY="14.0" text="Assistant'sPage">
+        <Label layoutX="295.0" layoutY="14.0" text="Practitioner'sPage">
             <font>
                 <Font name="Century Gothic" size="39.0" />
             </font>
         </Label>
-        <Button layoutX="14.0" layoutY="453.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="206.0" text="Return" />
-        <TableView layoutY="153.0" prefHeight="233.0" prefWidth="892.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <Button fx:id="_returnBtn" layoutX="14.0" layoutY="471.0" mnemonicParsing="false" onAction="#_returnToMenu" prefHeight="25.0" prefWidth="206.0" text="Return" />
+        <TableView fx:id="_practitionerTable" layoutY="153.0" prefHeight="233.0" prefWidth="892.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <columns>
-                <TableColumn prefWidth="107.0" text="Student ID" />
-                <TableColumn prefWidth="210.0" text="Student Name" />
-                <TableColumn prefWidth="235.0" text="Course" />
-                <TableColumn prefWidth="253.0" text="Class" />
-                <TableColumn text="Grade" />
+                <TableColumn fx:id="_studentIdColumn" prefWidth="107.0" text="Student ID" />
+                <TableColumn fx:id="_studentNameColumn" prefWidth="210.0" text="Student Name" />
+                <TableColumn fx:id="_studentCourseColumn" onEditCommit="#_changeCourse" prefWidth="184.0" text="Course" />
+                <TableColumn fx:id="_studentClassColumn" onEditCommit="#_changeClass" prefWidth="213.0" text="Class" />
+                <TableColumn fx:id="_studentGradeColumn" onEditCommit="#_changeGrade" prefWidth="162.0" text="Grade" />
             </columns>
         </TableView>
-      <Button layoutX="765.0" layoutY="428.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="100.0" text="Save" />
+        <Button fx:id="_saveBtn" layoutX="778.0" layoutY="471.0" mnemonicParsing="false" onAction="#_saveData" prefHeight="25.0" prefWidth="100.0" text="Save" />
+        <Button fx:id="_getDataBtn" layoutX="418.0" layoutY="91.0" mnemonicParsing="false" onAction="#_getData" text="Get Data" />
     </children>
 </AnchorPane>

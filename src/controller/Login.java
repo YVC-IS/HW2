@@ -44,8 +44,20 @@ public class Login {
 
                     switch (this.type.getValue())
                     {
-                        case "Student" -> Main.load("Student");
-                        case "Admin" -> Main.load("Admin");
+                        case "Student" -> {
+                            Data data1 = new Data("1","tt","aa","cc","ff");
+                            Data data2 = new Data("2","dd","bb","dd","hh");
+                            ObservableList<Data> data = FXCollections.observableArrayList(data1, data2);
+                            lstData = data;
+                            Main.load("Student");
+                        }
+                        case "Admin" -> {
+                            Data data1 = new Data("1","tt","aa","cc","ff");
+                            Data data2 = new Data("2","dd","bb","dd","hh");
+                            ObservableList<Data> data = FXCollections.observableArrayList(data1, data2);
+                            lstData = data;
+                            Main.load("Admin");
+                        }
                         case "Lecturer" -> {
                             Data data1 = new Data("1","tt","aa","cc","ff");
                             Data data2 = new Data("2","dd","bb","dd","hh");
@@ -53,6 +65,12 @@ public class Login {
                             lstData = data;
                             Main.load("Lecturer");
                         }
+                        case "Practitioner" -> {
+                            Data data1 = new Data("1","tt","aa","cc","ff");
+                            Data data2 = new Data("2","dd","bb","dd","hh");
+                            ObservableList<Data> data = FXCollections.observableArrayList(data1, data2);
+                            lstData = data;
+                            Main.load("Practitioner");}
                     }
                     return;
                 }
