@@ -26,7 +26,7 @@ public class Admin extends Person {
         return Admin.set;
     }
 
-    public static void read() throws IOException {
+    public static void read1() throws IOException {
         try (Reader reader = new FileReader("csv/admins.csv")) {
             List<Admin> admins = new CsvToBeanBuilder<Admin>(reader).withType(Admin.class).build().parse();
             Admin.set = new HashSet<>(admins);

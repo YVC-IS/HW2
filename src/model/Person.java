@@ -2,9 +2,10 @@ package model;
 
 import com.opencsv.bean.CsvBindByName;
 
+import java.io.*;
 import java.util.Date;
 
-public abstract class Person {
+public abstract class Person implements Serializable {
     @CsvBindByName
     private final int id;
 
@@ -46,6 +47,43 @@ public abstract class Person {
 
     public String getPassword() {
         return this.password;
+    }
+
+    public Person read() {
+        Person person = null;
+
+        try (FileInputStream file = new FileInputStream("person.ser")) {
+            try (ObjectInputStream object = new ObjectInputStream(file)) {
+                person = (Person) object.readObject();
+            }
+        }
+        catch (IOException | ClassNotFoundException exception) {
+            System.out.println(exception.getMessage());
+        }
+
+        return person;
+    }
+
+    public void write() {
+        try (FileOutputStream file = new FileOutputStream("person.ser")) {
+            try (ObjectOutputStream object = new ObjectOutputStream(file)) {
+                object.writeObject(this);
+                object.flush();
+            }
+        }
+        catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    @Serial
+    private void readObject(ObjectInputStream stream) throws ClassNotFoundException, IOException {
+        stream.defaultReadObject();
+    }
+
+    @Serial
+    private void writeObject(ObjectOutputStream stream) throws IOException {
+        stream.defaultWriteObject();
     }
 
     @Override
