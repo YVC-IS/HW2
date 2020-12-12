@@ -7,11 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import model.Admin;
-
-import java.sql.Array;
-import java.time.LocalDate;
-import java.util.Arrays;
 
 public class Main extends Application {
 	private static Stage stage;
@@ -77,15 +72,6 @@ public class Main extends Application {
 	}
 
 	public static void main(String[] args) {
-		LocalDate localDate = LocalDate.of(2020,7,24);
-		System.out.println(localDate);
-//		try {
-//			Admin.read();
-//		} catch (IOException e) {
-//			System.out.println(e.getMessage());
-//			e.printStackTrace();
-//		}
-		System.out.println(Arrays.toString(Admin.getAdmins().toArray()));
 		Application.launch(args);
 	}
 }
