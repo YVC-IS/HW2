@@ -1,6 +1,13 @@
 package controller;
 
 import application.Main;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
@@ -8,9 +15,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import model.Data;
 
-import java.util.Arrays;
+import model.Data;
 
 public class Admin {
     @FXML
@@ -60,9 +66,9 @@ public class Admin {
         _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
         _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        // System.out.println(Arrays.toString(Login.data.toArray()));
 
-        _adminTable.setItems(Login.lstData);
+        _adminTable.setItems(Login.data);
 
         //This will allow the table to select multiple rows at once
         _adminTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -76,17 +82,28 @@ public class Admin {
 
     @FXML
     void _saveData() {
-        for (Data data : Login.lstData) {
-            data.write(data.getId());
+        try (FileOutputStream file = new FileOutputStream("admin.ser")) {
+            try (ObjectOutputStream object = new ObjectOutputStream(file)) {
+                object.writeObject(new ArrayList<>(Login.data));
+                object.flush();
+            }
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
         }
     }
 
     public void _changeCourse(TableColumn.CellEditEvent cellEditEvent) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setCourse(cellEditEvent.getNewValue().toString());
     }
 
     public void _changeClass(TableColumn.CellEditEvent cellEditEvent) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setKlass(cellEditEvent.getNewValue().toString());
     }
 
     public void _changeGrade(TableColumn.CellEditEvent cellEditEvent) {
+        Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
+        dataSelected.setGarde(cellEditEvent.getNewValue().toString());
     }
 }

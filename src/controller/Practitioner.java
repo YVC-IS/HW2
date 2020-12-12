@@ -2,6 +2,10 @@ package controller;
 
 import application.Main;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javafx.fxml.FXML;
@@ -66,9 +70,9 @@ public class Practitioner
         _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
         _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        System.out.println(Arrays.toString(Login.data.toArray()));
 
-        _practitionerTable.setItems(Login.lstData);
+        _practitionerTable.setItems(Login.data);
 
         //This will allow the table to select multiple rows at once
         _practitionerTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -79,7 +83,7 @@ public class Practitioner
     void _changeClass(TableColumn.CellEditEvent event) {
         Data dataSelected = _practitionerTable.getSelectionModel().getSelectedItem();
         dataSelected.setKlass(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        System.out.println(Arrays.toString(Login.data.toArray()));
     }
 
     @FXML
@@ -91,11 +95,18 @@ public class Practitioner
     void _changeGrade(TableColumn.CellEditEvent event) {
         Data dataSelected = _practitionerTable.getSelectionModel().getSelectedItem();
         dataSelected.setGarde(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        System.out.println(Arrays.toString(Login.data.toArray()));
     }
 
     @FXML
     void _saveData() {
-
+        try (FileOutputStream file = new FileOutputStream("practitioner.ser")) {
+            try (ObjectOutputStream object = new ObjectOutputStream(file)) {
+                object.writeObject(new ArrayList<>(Login.data));
+                object.flush();
+            }
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 }

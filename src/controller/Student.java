@@ -54,7 +54,6 @@ public class Student {
         _studentTable.setItems(students);
         System.out.println(Arrays.toString(students.toArray()));
 
-
         //This will allow the table to select multiple rows at once
         _studentTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
@@ -64,23 +63,14 @@ public class Student {
         Main.load("Login");
     }
 
-
-
-
     @FXML
     void _onEditChanged(TableColumn.CellEditEvent<model.Student,String> event) {
-
         model.Student st = _studentTable.getSelectionModel().getSelectedItem();
-
-
     }
-
 
     /**
      * This method will remove the selected row(s) from the table
      */
-
-
     public void deleteButtonPushed()
     {
         ObservableList<model.Student> selectedRows, allPeople;
@@ -90,12 +80,10 @@ public class Student {
         selectedRows = _studentTable.getSelectionModel().getSelectedItems();
 
         //loop over the selected rows and remove the Person objects from the table
-        for (model.Student st: selectedRows)
-        {
+        for (model.Student st: selectedRows) {
             allPeople.remove(st);
         }
     }
-
 
     /**
      * This method will create a new Student object and add it to the table
@@ -103,10 +91,8 @@ public class Student {
     public void newStudentButtonPushed()
     {
         model.Student newStudent = new model.Student(_columnName.getText(),new Date(), "", "");
-
         //Get all the items from the table as a list, then add the new student to
         //the list
         _studentTable.getItems().add(newStudent);
     }
-
 }

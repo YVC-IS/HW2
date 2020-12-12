@@ -2,6 +2,10 @@ package controller;
 
 import application.Main;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import javafx.fxml.FXML;
@@ -66,9 +70,9 @@ public class Lecturer {
         _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
         _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        System.out.println(Arrays.toString(Login.data.toArray()));
 
-        _lecturerTable.setItems(Login.lstData);
+        _lecturerTable.setItems(Login.data);
 
         //This will allow the table to select multiple rows at once
         _lecturerTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -79,7 +83,7 @@ public class Lecturer {
     void _changeClass(TableColumn.CellEditEvent event) {
         Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
         dataSelected.setKlass(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        System.out.println(Arrays.toString(Login.data.toArray()));
 
     }
 
@@ -92,12 +96,19 @@ public class Lecturer {
     void _changeGrade(TableColumn.CellEditEvent event) {
         Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
         dataSelected.setGarde(event.getNewValue().toString());
-        System.out.println(Arrays.toString(Login.lstData.toArray()));
+        System.out.println(Arrays.toString(Login.data.toArray()));
 
     }
 
     @FXML
     void _saveData() {
-
+        try (FileOutputStream file = new FileOutputStream("lecturer.ser")) {
+            try (ObjectOutputStream object = new ObjectOutputStream(file)) {
+                object.writeObject(new ArrayList<>(Login.data));
+                object.flush();
+            }
+        } catch (IOException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 }
