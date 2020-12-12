@@ -100,7 +100,7 @@ public class Practitioner
 
     @FXML
     void _saveData() {
-        try (FileOutputStream file = new FileOutputStream("practitioner.ser")) {
+        try (FileOutputStream file = new FileOutputStream("data/practitioner.ser")) {
             try (ObjectOutputStream object = new ObjectOutputStream(file)) {
                 object.writeObject(new ArrayList<>(Login.data));
                 object.flush();

@@ -1,7 +1,7 @@
 package controller;
 
 import application.Main;
-import data.User;
+import application.User;
 
 import java.io.FileInputStream;
 import java.io.IOException;

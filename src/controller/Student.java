@@ -64,22 +64,14 @@ public class Student {
         Main.load("Login");
     }
 
-
-
-
     @FXML
     void _onEditChanged(TableColumn.CellEditEvent<model.Student,String> event) {
-
         model.Student st = _studentTable.getSelectionModel().getSelectedItem();
-
-
     }
-
 
     /**
      * This method will remove the selected row(s) from the table
      */
-
 
     public void deleteButtonPushed()
     {
@@ -96,7 +88,6 @@ public class Student {
         }
     }
 
-
     /**
      * This method will create a new Student object and add it to the table
      */
@@ -108,5 +99,4 @@ public class Student {
         //the list
         _studentTable.getItems().add(newStudent);
     }
-
 }

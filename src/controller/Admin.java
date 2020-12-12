@@ -67,7 +67,7 @@ public class Admin {
 
     @FXML
     void _saveData() {
-        try (FileOutputStream file = new FileOutputStream("admin.ser")) {
+        try (FileOutputStream file = new FileOutputStream("data/admin.ser")) {
             try (ObjectOutputStream object = new ObjectOutputStream(file)) {
                 object.writeObject(new ArrayList<>(Login.data));
                 object.flush();

@@ -102,7 +102,7 @@ public class Lecturer {
 
     @FXML
     void _saveData() {
-        try (FileOutputStream file = new FileOutputStream("lecturer.ser")) {
+        try (FileOutputStream file = new FileOutputStream("data/lecturer.ser")) {
             try (ObjectOutputStream object = new ObjectOutputStream(file)) {
                 object.writeObject(new ArrayList<>(Login.data));
                 object.flush();

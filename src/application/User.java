@@ -1,4 +1,4 @@
-package data;
+package application;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -36,7 +36,7 @@ public class User {
     }
 
     public static List<User> read() throws IOException {
-        try (Reader reader = new FileReader("users.csv")) {
+        try (Reader reader = new FileReader("data/users.csv")) {
             return new CsvToBeanBuilder<User>(reader).withType(User.class).build().parse();
         }
     }
