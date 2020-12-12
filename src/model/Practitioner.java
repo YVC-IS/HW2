@@ -8,10 +8,14 @@ public class Practitioner extends Person {
     private final String degree;
     private static final Set<Practitioner> practitioners = new HashSet<>();
 
-    public Practitioner(String name, Date birthdate, String degree) {
-	    super(practitioners.size() + 1, name, birthdate);
-	    this.degree = degree;
-	    practitioners.add(this);
+    public Practitioner(int id, String name, Date birthdate, String username, String password, String degree) {
+        super(id, name, birthdate, username, password);
+        this.degree = degree;
+        practitioners.add(this);
+    }
+
+    public Practitioner(String name, Date birthdate, String username, String password, String degree) {
+        this(practitioners.size() + 1, name, birthdate, username, password, degree);
     }
 
     @Override

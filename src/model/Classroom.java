@@ -8,7 +8,6 @@ public class Classroom {
     private final int capacity;
     private static final Set<Classroom> classrooms = new HashSet<>();
 
-
     public Classroom(int capacity) {
         this.id = classrooms.size() + 1;
         this.capacity = capacity;

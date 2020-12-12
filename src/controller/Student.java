@@ -3,35 +3,26 @@ package controller;
 import application.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.util.converter.IntegerStringConverter;
-import model.Person;
-import model.Student;
 
-import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 
-public class StudentPageController {
-
-
+public class Student {
+    @FXML
+    private TableView<model.Student> _studentTable;
 
     @FXML
-    private TableView<Student> _studentTable;
-
-
-    @FXML
-    private TableColumn<Student, Integer> _columnId;
+    private TableColumn<model.Student, Integer> _columnId;
 
     @FXML
-    private TableColumn<Student, String> _columnName;
+    private TableColumn<model.Student, String> _columnName;
 
     @FXML
-    private TableColumn<Student, Date> _columnBirthday;
+    private TableColumn<model.Student, Date> _columnBirthday;
 
     @FXML
     private Button _getStatusBtn;
@@ -39,28 +30,23 @@ public class StudentPageController {
     @FXML
     private Button _returnBtn;
 
-
-
-
-    /*public ObservableList<Student> getStudents ()
-    {
+    /*
+    public ObservableList<Student> getStudents() {
         ObservableList<Student> students = FXCollections.observableArrayList();
-
         students.add(new Student("Idan", new Date()));
         return students;
     }
-*/
+    */
 
-        private ObservableList<Student> students = FXCollections.observableArrayList(
-
-        new Student("Idan", new Date(2000,11,12)),
-        new Student("Denis", new Date(2000,12,12)));
+    private ObservableList<model.Student> students = FXCollections.observableArrayList(
+            new model.Student("Idan", null, "user", "pass"),
+            new model.Student("Idan", null, "user", "pass"));
 
     @FXML
     void _getStatus() {
         // have to do that for each column
         _studentTable.setEditable(true); // make the table editable
-        _columnName.setCellValueFactory(new PropertyValueFactory<Student,String>("Name")); // on column _columnName set the name of the object (Student)
+        _columnName.setCellValueFactory(new PropertyValueFactory<model.Student,String>("Name")); // on column _columnName set the name of the object (Student)
         _columnName.setCellFactory(TextFieldTableCell.forTableColumn());
 
         // _columnId.setCellValueFactory(new PropertyValueFactory<Student,Integer>("ID"));
@@ -75,16 +61,16 @@ public class StudentPageController {
 
     @FXML
     void _returnToMain() {
-        Main.load("Login",null);
+        Main.load("Login");
     }
 
 
 
 
     @FXML
-    void _onEditChanged(TableColumn.CellEditEvent<Student,String> event) {
+    void _onEditChanged(TableColumn.CellEditEvent<model.Student,String> event) {
 
-        Student st = _studentTable.getSelectionModel().getSelectedItem();
+        model.Student st = _studentTable.getSelectionModel().getSelectedItem();
 
 
     }
@@ -97,14 +83,14 @@ public class StudentPageController {
 
     public void deleteButtonPushed()
     {
-        ObservableList<Student> selectedRows, allPeople;
+        ObservableList<model.Student> selectedRows, allPeople;
         allPeople = _studentTable.getItems();
 
         //this gives us the rows that were selected
         selectedRows = _studentTable.getSelectionModel().getSelectedItems();
 
         //loop over the selected rows and remove the Person objects from the table
-        for (Student st: selectedRows)
+        for (model.Student st: selectedRows)
         {
             allPeople.remove(st);
         }
@@ -116,7 +102,7 @@ public class StudentPageController {
      */
     public void newStudentButtonPushed()
     {
-        Student newStudent = new Student(_columnName.getText(),new Date());
+        model.Student newStudent = new model.Student(_columnName.getText(),new Date(), "", "");
 
         //Get all the items from the table as a list, then add the new student to
         //the list

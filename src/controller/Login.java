@@ -1,19 +1,18 @@
 package controller;
 
 import application.Main;
-import application.User;
-import javafx.beans.Observable;
+import data.User;
+
+import java.io.IOException;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+
 import model.Data;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-public class Login{
+public class Login {
     public static ObservableList<Data> lstData;
     private final ObservableList<String> types = FXCollections.observableArrayList("Admin", "Lecturer", "Practitioner", "Student");
 
@@ -29,12 +28,12 @@ public class Login{
     @FXML
     private Button login;
 
+    @FXML
     public void initialize() {
         this.type.setValue("Choose Option");
         this.type.setItems(this.types);
     }
 
-    private String _userType; // this is a variable for collecting type of User for switch case bellow
     @FXML
     void click() {
         try {
@@ -42,38 +41,28 @@ public class Login{
                 if (user.getType().equalsIgnoreCase(this.type.getValue()) &&
                         user.getUser().equals(this.user.getText()) &&
                         user.getPass().equals(this.pass.getText())) {
-                        _userType = this.type.getValue();
 
-
-                        switch (_userType)
-                        {
-                            case "Student" -> { Main.load("Student",null) ;break; }
-                            case "Admin" -> {Main.load("Admin",null); break;}
-                            case "Lecturer" -> {
-
-                                Data data1 = new Data("1","tt","aa","cc","ff");
-                                Data data2 = new Data("2","dd","bb","dd","hh");
-                                ObservableList<Data> data = FXCollections.observableArrayList (
-                                        data1,
-                                        data2);
-                                lstData = data;
-                                setLstData(lstData);
-
-                                Main.load("Lecturer", lstData); break;}
+                    switch (this.type.getValue())
+                    {
+                        case "Student" -> Main.load("Student");
+                        case "Admin" -> Main.load("Admin");
+                        case "Lecturer" -> {
+                            Data data1 = new Data("1","tt","aa","cc","ff");
+                            Data data2 = new Data("2","dd","bb","dd","hh");
+                            ObservableList<Data> data = FXCollections.observableArrayList(data1, data2);
+                            lstData = data;
+                            Main.load("Lecturer");
+                        }
                     }
-                        return;
+                    return;
                 }
             }
 
-            setAlert();  // Alert function' see bellow
+            setAlert();
         } catch (IOException exception) {
             System.out.println(exception.getMessage());
         }
-
-
     }
-
-    // Its better to see it as separate function lol
 
     private void setAlert ()
     {
@@ -82,11 +71,4 @@ public class Login{
         alert.setContentText("Enter Valid UserID or Password");
         alert.show();
     }
-
-
-    private void setLstData (ObservableList<Data> list)
-    {
-        this.lstData = list;
-    }
-
 }

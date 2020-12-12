@@ -1,4 +1,4 @@
-package application;
+package data;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvToBeanBuilder;
@@ -32,7 +32,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("User { user: %s | pass: %s | type: %s }", this.user, this.pass, this.type);
+        return String.format("User { type: %s | user: %s | pass: %s }", this.type, this.user, this.pass);
     }
 
     public static List<User> read() throws IOException {
