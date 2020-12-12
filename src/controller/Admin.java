@@ -14,7 +14,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Admin {
     @FXML
@@ -47,30 +46,18 @@ public class Admin {
     @FXML
     void _getData() {
         _adminTable.setEditable(true);
-
         _studentIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         _studentIdColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
         _studentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         _studentNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
-
         _studentCourseColumn.setCellValueFactory(new PropertyValueFactory<>("Course"));
         _studentCourseColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
         _studentClassColumn.setCellValueFactory(new PropertyValueFactory<>("Klass"));
         _studentClassColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
         _studentGradeColumn.setCellValueFactory(new PropertyValueFactory<>("Garde"));
         _studentGradeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        System.out.println(Arrays.toString(Login.data.toArray()));
-
         _adminTable.setItems(Login.data);
-
-        //This will allow the table to select multiple rows at once
         _adminTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-        //System.out.println(Arrays.toString(Login.lstData.toArray()));
     }
 
     @FXML
@@ -91,32 +78,32 @@ public class Admin {
     }
 
     @FXML
-    void _changeId(TableColumn.CellEditEvent event) {
+    void changeId(TableColumn.CellEditEvent<Data, String> event) {
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setId(event.getNewValue().toString());
+        dataSelected.setId(event.getNewValue());
     }
 
     @FXML
-    void _changeName(TableColumn.CellEditEvent event) {
+    void changeName(TableColumn.CellEditEvent<Data, String> event) {
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setName(event.getNewValue().toString());
+        dataSelected.setName(event.getNewValue());
     }
 
     @FXML
-    void _changeCourse(TableColumn.CellEditEvent event) {
+    void changeCourse(TableColumn.CellEditEvent<Data, String> event) {
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setCourse(event.getNewValue().toString());
+        dataSelected.setCourse(event.getNewValue());
     }
 
     @FXML
-    void _changeClassroom(TableColumn.CellEditEvent event) {
+    void changeClassroom(TableColumn.CellEditEvent<Data, String> event) {
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setKlass(event.getNewValue().toString());
+        dataSelected.setClassroom(event.getNewValue());
     }
 
     @FXML
-    void _changeGrade(TableColumn.CellEditEvent event) {
+    void changeGrade(TableColumn.CellEditEvent<Data, String> event) {
         Data dataSelected = _adminTable.getSelectionModel().getSelectedItem();
-        dataSelected.setGarde(event.getNewValue().toString());
+        dataSelected.setGarde(event.getNewValue());
     }
 }

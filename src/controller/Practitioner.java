@@ -82,7 +82,7 @@ public class Practitioner
     @FXML
     void _changeClass(TableColumn.CellEditEvent event) {
         Data dataSelected = _practitionerTable.getSelectionModel().getSelectedItem();
-        dataSelected.setKlass(event.getNewValue().toString());
+        dataSelected.setClassroom(event.getNewValue().toString());
         System.out.println(Arrays.toString(Login.data.toArray()));
     }
 

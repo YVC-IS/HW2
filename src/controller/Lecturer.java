@@ -82,7 +82,7 @@ public class Lecturer {
     @FXML
     void _changeClass(TableColumn.CellEditEvent event) {
         Data dataSelected = _lecturerTable.getSelectionModel().getSelectedItem();
-        dataSelected.setKlass(event.getNewValue().toString());
+        dataSelected.setClassroom(event.getNewValue().toString());
         System.out.println(Arrays.toString(Login.data.toArray()));
 
     }

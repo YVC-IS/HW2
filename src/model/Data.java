@@ -3,63 +3,65 @@ package model;
 import java.io.*;
 
 public class Data implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
+
     private String id;
     private String name;
     private String course;
-    private String klass;
+    private String classroom;
     private String garde;
 
-    public Data(String id, String name, String course, String klass, String garde) {
+    public Data(String id, String name, String course, String classroom, String garde) {
         this.id = id;
         this.name = name;
         this.course = course;
-        this.klass = klass;
+        this.classroom = classroom;
         this.garde = garde;
     }
 
-    // Copy constructor
     public Data(Data data) {
         this.id = data.id;
         this.name = data.name;
         this.course = data.course;
-        this.klass = data.klass;
+        this.classroom = data.classroom;
         this.garde = data.garde;
     }
 
     public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public String getKlass() {
-        return klass;
-    }
-
-    public String getGarde() {
-        return garde;
+        return this.id;
     }
 
     public void setId(String id) {
         this.id = id;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCourse() {
+        return this.course;
     }
 
     public void setCourse(String course) {
         this.course = course;
     }
 
-    public void setKlass(String klass) {
-        this.klass = klass;
+    public String getClassroom() {
+        return this.classroom;
+    }
+
+    public void setClassroom(String classroom) {
+        this.classroom = classroom;
+    }
+
+    public String getGarde() {
+        return this.garde;
     }
 
     public void setGarde(String garde) {
@@ -104,6 +106,6 @@ public class Data implements Serializable {
     @Override
     public String toString() {
         return String.format("ID: %s | Name: %s | Course: %s | Classroom: %s, Grade: %s",
-                this.id, this.name, this.course, this.klass, this.garde);
+                this.id, this.name, this.course, this.classroom, this.garde);
     }
 }
